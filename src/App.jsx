@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import RouteNotFound from "./pages/NotFound";
+import Post from "./pages/Post";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="/product/:id" element={<Post />} />
           <Route path="*" element={<RouteNotFound />} />
         </Route>
       </Routes>
