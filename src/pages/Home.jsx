@@ -33,11 +33,11 @@ export function Home() {
     }
 
     return (
-        <div className='flex flex-wrap gap-10 py-5 px-5 justify-center'>
-            {posts.map(post => (
-                <ProductCard key={post.id} post={post} />
-            ))}
-        </div>
+            <div className='flex flex-wrap gap-10 py-5 px-5 justify-center'>
+                {posts.map(post => (
+                    <ProductCard key={post.id} post={post} />
+                ))}
+            </div>
     );
 }
 
