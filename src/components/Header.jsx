@@ -1,4 +1,4 @@
-import Nav from "./nav.jsx";
+import Nav from "./Nav.jsx";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 

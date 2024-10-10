@@ -1,10 +1,10 @@
 import React from "react"
 import { Routes, Route, Link, useParams } from "react-router-dom"
-import { Layout } from "./CAComponents/layout";
-import Home from "./Pages/home";
-import Contact from "./Pages/contact";
-import Cart from "./CAComponents/cart";
-import RouteNotFound from "./Pages/notFound";
+import { Layout } from "./layouts/Layout";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Cart from "./pages/cart";
+import RouteNotFound from "./pages/NotFound";
 
 
 function App() {
