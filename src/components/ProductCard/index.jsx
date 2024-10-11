@@ -17,7 +17,10 @@ const ProductCard = ({ post }) => {
       <div>
         <h3>Rated {post.rating}/5</h3>
         <h2 className='text-lg py-1'>{post.title}</h2>
-        <h3 className='text-md'>{post.price} NOK</h3>
+          <div className='flex text-sm justify-between'>
+            <h3 className='text-md'>{post.discountedPrice} NOK</h3>
+            <h3 className='text-md'>{post.price} NOK</h3>
+          </div>
       </div>
     </div>
   );

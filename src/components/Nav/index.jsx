@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 export function Nav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +14,15 @@ export function Nav() {
                 </svg>
             </button>
             
-            <ul className={`flex-col font-semibold md:flex md:flex-row gap-5 px-5 py-5 mt-4 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+            <ul className={`flex-col text-pretty text-lg font-light md:flex md:flex-row gap-10 px-5 py-5 mt-4 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
                 <li className="hover:underline">
                     <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
                 </li>
                 <li className="hover:underline">
-                    <Link to="/contact" onClick={() => setIsOpen(false)}>Contact Page</Link>
+                    <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
                 </li>
                 <li className="hover:underline">
-                    <Link to="/cart" onClick={() => setIsOpen(false)}>Shopping Cart</Link>
+                    <Link to="/cart" onClick={() => setIsOpen(false)}> <FontAwesomeIcon icon={faCartShopping} /> </Link>
                 </li>
             </ul>
         </nav>
