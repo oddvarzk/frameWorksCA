@@ -32,8 +32,6 @@ const Post = () => {
     const updatedCart = [...cart, product];
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    
-    // Dispatch an event to notify that the cart has been updated
     window.dispatchEvent(new Event('cartUpdated'));
   };
 

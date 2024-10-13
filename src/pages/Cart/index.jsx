@@ -72,7 +72,7 @@ const Checkout = () => {
                   onClick={() => handleRemoveItem(index)}
                   className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-all"
                 >
-                  Remove
+                  X
                 </button>
               </div>
             </div>
@@ -82,6 +82,9 @@ const Checkout = () => {
           </div>
         </div>
       )}
+        <div className="text-right font-semibold text-lg mt-6">
+            <button className="text-paleSand bg-deepBlue rounded-sm pl-3 pr-3 pt-1 pb-1">Checkout</button>
+          </div>
     </div>
   );
 };
