@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchData } from '../../api/fetchData';
 import ProductCard from '../../components/ProductCard';
-import Search from '../../components/Search';
 
 export function Home() {
     const [posts, setPosts] = useState([]);
@@ -58,7 +57,6 @@ export function Home() {
         <div>
             <div className='flex justify-between px-10 py-3'>
                 <h1 className='font-light text-xl text-charcoal'>Items for sale</h1>
-                <Search/>
             </div>
             <div className='flex flex-wrap gap-10 py-5 px-5 justify-center'>
                 {posts.length > 0 ? (
