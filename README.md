@@ -10,21 +10,23 @@
 
 # Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/oddvarzk/frameWorksCA.git
-cd frameWorksCA
-Install dependencies:
+- bash
+- Copy code
+- git clone https://github.com/oddvarzk/frameWorksCA.git
+- cd frameWorksCA
 
-bash
-Copy code
-npm install
-Run the development server:
+# Install dependencies:
 
-bash
-Copy code
-npm run dev
-This will start the development server on http://localhost:3000. Open this URL in your browser to view the application.
+- bash
+- Copy code
+- npm install
+
+# Run the development server:
+
+- bash
+- Copy code
+- npm run dev
+- This will start the development server on http://localhost:3000. Open this URL in your browser to view the application.
 
 # Features
 - This store features:
