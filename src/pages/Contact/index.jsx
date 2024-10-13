@@ -11,7 +11,7 @@ export function Contact(){
                     <p className="text-lg font-light text-center">For any inqueries or questions, please contact us with the form below</p>            
                 </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center py-6">
                 <Contactform/>
             </div>
         </div>

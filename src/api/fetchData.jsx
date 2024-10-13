@@ -1,4 +1,4 @@
-const url = "https://v2.api.noroff.dev/online-shop";
+export const url = "https://v2.api.noroff.dev/online-shop";
 
 export const fetchData = async (id = null) => {
     const endpoint = id ? `${url}/${id}` : url;
@@ -10,4 +10,6 @@ export const fetchData = async (id = null) => {
         throw error;
     }
 };
+
+export default url;
 
