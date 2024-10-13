@@ -1,20 +1,35 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    try {
-      const savedCart = localStorage.getItem('cart');
-      if (savedCart) {
-        const cartData = JSON.parse(savedCart);
-        setCartItems(cartData);
-        calculateTotal(cartData);
+    const loadCart = () => {
+      try {
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+          const cartData = JSON.parse(savedCart);
+          setCartItems(cartData);
+          calculateTotal(cartData);
+        }
+      } catch (error) {
+        console.error('Failed to load cart data:', error);
       }
-    } catch (error) {
-      console.error('Failed to load cart data:', error);
-    }
+    };
+
+    loadCart();
+
+    // Listen for cart updates
+    const onCartUpdated = () => loadCart();  // Reload cart when the cartUpdated event is fired
+    window.addEventListener('cartUpdated', onCartUpdated);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('cartUpdated', onCartUpdated);
+    };
   }, []);
 
   const handleRemoveItem = useCallback((itemIndex) => {
@@ -29,7 +44,7 @@ const Checkout = () => {
   const updateLocalStorage = (cartData) => {
     try {
       localStorage.setItem('cart', JSON.stringify(cartData));
-      window.dispatchEvent(new Event('cartUpdated'));
+      window.dispatchEvent(new Event('cartUpdated'));  // Notify the application of cart updates
     } catch (error) {
       console.error('Error updating localStorage:', error);
     }
@@ -40,10 +55,15 @@ const Checkout = () => {
     setTotal(totalAmount.toFixed(2));
   };
 
+  const handleCheckout = () => {
+    localStorage.removeItem('cart');
+    window.dispatchEvent(new Event('cartUpdated'));
+    navigate('/CheckoutSuccessPage');
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-5">
       <h2 className="text-3xl font-bold mb-6">Your Shopping Cart</h2>
-      
       {cartItems.length === 0 ? (
         <div className="text-center text-gray-500">
           <p>Your cart is empty. Start shopping to add items!</p>
@@ -66,27 +86,21 @@ const Checkout = () => {
                   <p className="text-md text-deepBlue font-medium">{item.discountedPrice ? `${item.discountedPrice} NOK` : 'Price Unavailable'}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <p className="text-sm text-gray-600">Qty: 1</p>
-                <button 
-                  onClick={() => handleRemoveItem(index)}
-                  className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-all"
-                >
-                  X
-                </button>
-              </div>
+              <button onClick={() => handleRemoveItem(index)} className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-all">
+                Remove
+              </button>
             </div>
           ))}
           <div className="text-right font-semibold text-lg mt-6">
-            <p className="text-gray-700">Total: <span className="text-deepBlue">{total} NOK</span></p>
+            <p>Total: <span className="text-deepBlue">{total} NOK</span></p>
+            <button onClick={handleCheckout} className="text-paleSand bg-deepBlue rounded-sm px-4 py-2">Checkout</button>
           </div>
         </div>
       )}
-        <div className="text-right font-semibold text-lg mt-6">
-            <button className="text-paleSand bg-deepBlue rounded-sm pl-3 pr-3 pt-1 pb-1">Checkout</button>
-          </div>
     </div>
   );
 };
 
 export default Checkout;
+
+
