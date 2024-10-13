@@ -15,17 +15,14 @@ export function Header() {
     };
 
     useEffect(() => {
-        // Initial cart count load
         updateCartCount();
 
-        // Listen for the custom 'cartUpdated' event
         const handleCartUpdated = () => {
             updateCartCount();
         };
 
         window.addEventListener('cartUpdated', handleCartUpdated);
         
-        // Clean up the event listener
         return () => {
             window.removeEventListener('cartUpdated', handleCartUpdated);
         };
@@ -41,7 +38,7 @@ export function Header() {
             <div className="flex">
                 <Nav />
                 <div className="flex items-center gap-4 text-pretty text-lg font-light md:flex-row px-5 py-5 mt-4">
-                    <Link to="/cart" className="relative">
+                    <Link to="/Checkout" className="relative">
                         <FontAwesomeIcon icon={faCartShopping} className="text-3xl mb-5" />
                         {cartCount > 0 && (
                             <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
