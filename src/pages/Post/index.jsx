@@ -20,6 +20,7 @@ const Post = () => {
     fetchData(id)
       .then((data) => {
         setProduct(data);
+        console.log(data);
         setIsLoading(false);
       })
       .catch(() => {
@@ -69,6 +70,15 @@ const Post = () => {
         >
           Add to Cart
         </button>
+      </div>
+      <div>
+        <div>
+        <div className='py-4 flex justify-center'>
+            <StarRating rating={product.reviews.rating} />
+            <p className='text-sm'>{product.reviews.username}</p>
+            <p className='text-sm'>{product.reviews.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
