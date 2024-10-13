@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import StarRating from '../Rating';
+import StarRating from '../StarRating';
 
 const ProductCard = ({ post }) => {
   const navigate = useNavigate();

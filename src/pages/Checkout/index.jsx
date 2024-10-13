@@ -22,11 +22,9 @@ const Checkout = () => {
 
     loadCart();
 
-    // Listen for cart updates
-    const onCartUpdated = () => loadCart();  // Reload cart when the cartUpdated event is fired
+    const onCartUpdated = () => loadCart(); 
     window.addEventListener('cartUpdated', onCartUpdated);
 
-    // Cleanup the event listener
     return () => {
       window.removeEventListener('cartUpdated', onCartUpdated);
     };
@@ -44,7 +42,7 @@ const Checkout = () => {
   const updateLocalStorage = (cartData) => {
     try {
       localStorage.setItem('cart', JSON.stringify(cartData));
-      window.dispatchEvent(new Event('cartUpdated'));  // Notify the application of cart updates
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (error) {
       console.error('Error updating localStorage:', error);
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../../api/fetchData.jsx';
-import StarRating from '../../components/Rating/index.jsx';
+import StarRating from '../../components/StarRating/index.jsx';
 
 const Post = () => {
   const { id } = useParams();
