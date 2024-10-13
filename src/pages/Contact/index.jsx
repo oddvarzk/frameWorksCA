@@ -1,3 +1,5 @@
+import Contactform from "../../components/ContactForm";
+
 export function Contact(){
     return (
         <div>
@@ -9,8 +11,8 @@ export function Contact(){
                     <p className="text-lg font-light text-center">For any inqueries or questions, please contact us with the form below</p>            
                 </div>
             </div>
-            <div>
-                
+            <div className="flex justify-center">
+                <Contactform/>
             </div>
         </div>
     );
