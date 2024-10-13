@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        paleSand: '#F4EFEA',
+        paleSand: '#F4F0D8',
         charcoal: '#333333',
         mutedTerracotta: '#CC7A57',
         deepBlue: '#4A6FA5',
