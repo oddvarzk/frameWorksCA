@@ -1,8 +1,39 @@
-# React + Vite
+## E-Commerce Store
+- This project is an e-commerce store developed as part of my university studies. It uses React along with Vite as the build tool, and Tailwind CSS for styling. The project aims to provide a seamless shopping experience with a modern design.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Prerequisites
+- Before you begin, ensure you have the following installed:
 
-Currently, two official plugins are available:
+# Node.js (v14 or newer)
+- Installation
+- To get started with this project, follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/oddvarzk/frameWorksCA.git
+cd frameWorksCA
+Install dependencies:
+
+bash
+Copy code
+npm install
+Run the development server:
+
+bash
+Copy code
+npm run dev
+This will start the development server on http://localhost:3000. Open this URL in your browser to view the application.
+
+# Features
+- This store features:
+
+- Product browsing
+- Cart functionality
+- Search capability with auto-complete
+- Responsive layout for various devices
+- Contributing
+- As this is a university project, contributions are not currently being accepted. However, feedback and suggestions are always welcome.
+
+
